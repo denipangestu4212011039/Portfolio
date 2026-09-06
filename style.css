@@ -689,6 +689,15 @@ html[data-theme="light"] .theme-thumb {
 }
 
 
+.btn-export {
+    background:
+        transparent;
+
+    cursor:
+        pointer;
+}
+
+
 .hero-skills {
     display: flex;
 
@@ -2337,6 +2346,262 @@ html[data-theme="light"] .theme-thumb {
         opacity: 1;
 
         transform: none;
+    }
+
+}
+
+
+/* =========================================================
+   PDF EXPORT / PRINT
+========================================================= */
+
+@page {
+    size: A4;
+
+    margin:
+        14mm;
+}
+
+
+@media print {
+
+    html[data-theme="dark"],
+    html[data-theme="light"] {
+        color-scheme: light;
+
+        --bg-start: #ffffff;
+        --bg-middle: #ffffff;
+        --bg-end: #ffffff;
+
+        --surface-1: #ffffff;
+        --surface-2: #f4f6f9;
+        --surface-3: #e9edf3;
+
+        --text-main: #111827;
+        --text-soft: #273142;
+        --text-muted: #596577;
+        --text-dim: #737f90;
+        --text-faint: #8b95a4;
+
+        --border: rgba(17, 24, 39, 0.12);
+        --border-strong: rgba(17, 24, 39, 0.22);
+
+        --surface-soft: rgba(17, 24, 39, 0.025);
+
+        --accent: #285edc;
+        --accent-hover: #285edc;
+        --accent-soft: rgba(40, 94, 220, 0.08);
+        --accent-glow: rgba(40, 94, 220, 0.18);
+
+        --button-text: #ffffff;
+
+        --image-shadow: rgba(17, 24, 39, 0.12);
+        --card-shadow: transparent;
+
+        --logo-shadow-main: rgba(17, 24, 39, 0.10);
+        --logo-shadow-accent: rgba(40, 94, 220, 0.06);
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+
+        transition: none !important;
+
+        -webkit-print-color-adjust: exact;
+
+        print-color-adjust: exact;
+    }
+
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    body,
+    body.menu-open {
+        overflow: visible;
+
+        background: #ffffff;
+    }
+
+
+    .header,
+    .hero-buttons,
+    .menu-toggle,
+    .theme-toggle,
+    .journey-track {
+        display: none !important;
+    }
+
+
+    .reveal,
+    .reveal.is-visible {
+        opacity: 1 !important;
+
+        transform: none !important;
+    }
+
+
+    .container {
+        width: 100%;
+
+        max-width: none;
+    }
+
+
+    .hero {
+        min-height: auto;
+    }
+
+
+    .hero-grid {
+        grid-template-columns:
+            minmax(0, 1.35fr)
+            minmax(46mm, 0.65fr);
+
+        gap: 12mm;
+
+        padding:
+            0 0 12mm;
+    }
+
+
+    .hero h1 {
+        max-width: none;
+
+        font-size: 34pt;
+
+        line-height: 1;
+    }
+
+
+    .hero-description {
+        max-width: none;
+
+        margin-top: 7mm;
+
+        font-size: 11pt;
+
+        line-height: 1.55;
+    }
+
+
+    .hero-skills {
+        margin-top: 8mm;
+    }
+
+
+    .hero-image-wrapper {
+        width: 100%;
+
+        max-width: 58mm;
+
+        margin-left: auto;
+    }
+
+
+    .hero-image {
+        box-shadow: none;
+    }
+
+
+    .section {
+        padding:
+            12mm 0;
+
+        break-before: page;
+
+        page-break-before: always;
+    }
+
+
+    .about-grid,
+    .automation-grid,
+    .contact-grid,
+    .journey-heading,
+    .projects-intro {
+        grid-template-columns:
+            1fr;
+
+        gap: 8mm;
+    }
+
+
+    .expertise-grid,
+    .journey-rail {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .expertise-grid {
+        gap: 8mm;
+
+        margin-top: 12mm;
+    }
+
+
+    .journey-heading,
+    .projects-intro {
+        margin-bottom: 12mm;
+    }
+
+
+    .journey-rail {
+        gap: 10mm 5mm;
+
+        padding-top: 0;
+    }
+
+
+    .journey-node {
+        display: none;
+    }
+
+
+    .journey-card-body,
+    .project-link {
+        background: #ffffff;
+
+        box-shadow: none;
+    }
+
+
+    .projects-grid {
+        grid-template-columns:
+            1fr;
+
+        gap: 8mm;
+    }
+
+
+    .journey-card,
+    .journey-card-body,
+    .expertise-item,
+    .project-card,
+    .project-link,
+    .about-info-item,
+    .journey-highlight {
+        break-inside: avoid;
+
+        page-break-inside: avoid;
+    }
+
+
+    a {
+        color: inherit;
+
+        text-decoration: none;
+    }
+
+
+    .footer {
+        padding:
+            8mm 0 0;
     }
 
 }

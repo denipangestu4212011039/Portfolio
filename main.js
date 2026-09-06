@@ -1,22 +1,31 @@
 const themeToggle =
-    document.getElementById(
-        "themeToggle"
-    );
+document.getElementById(
+    "themeToggle"
+);
+
 
 const menuToggle =
-    document.getElementById(
-        "menuToggle"
-    );
+document.getElementById(
+    "menuToggle"
+);
+
 
 const navLinks =
-    document.getElementById(
-        "navLinks"
-    );
+document.getElementById(
+    "navLinks"
+);
+
 
 const navItems =
-    navLinks.querySelectorAll(
-        "a"
-    );
+navLinks.querySelectorAll(
+    "a"
+);
+
+
+const exportPdfButton =
+document.getElementById(
+    "exportPdf"
+);
 
 
 /* =========================================================
@@ -153,19 +162,39 @@ window.addEventListener(
 
 
 /* =========================================================
+   EXPORT TO PDF
+========================================================= */
+
+if (exportPdfButton) {
+
+    exportPdfButton.addEventListener(
+        "click",
+        () => {
+
+            closeMenu();
+
+            window.print();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
    SCROLL REVEAL
 ========================================================= */
 
 const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
+document.querySelectorAll(
+    ".reveal"
+);
 
 
 const prefersReducedMotion =
-    window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
+window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
 
 
 if (
